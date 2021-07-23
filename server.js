@@ -43,23 +43,23 @@ app.post('/api/notes', (req, res) => {
             note_id: uuidv4()
         };
 
-        // readAndAppend function(s) here
+        // read file then append new note
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
             if (err) {
                 console.err(err);
             } else {
-                const noteCollection = JSON.parse(data); // put db.json into variable
-                noteCollection.push(newNote); // add new note to the array
+                const noteCollection = JSON.parse(data); // put db.json into array of objects
+                noteCollection.push(newNote); // add new note object to the array
 
+                // overwrite new collection into db.json
                 fs.writeFile("./db/db.json", JSON.stringify(noteCollection, null, 4), (err) => {
                     if (err) throw err;
                     console.log('Saved db.json');
                 });
 
-                res.json(newNote);
+                res.json(newNote); // return new note to client
             }
         });
-        // end readAndAppend
 
     } else {
         res.error('Error adding Note');

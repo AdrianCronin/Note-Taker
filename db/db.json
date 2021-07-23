@@ -17,5 +17,15 @@
         "title": "Third Title",
         "text": "Third Text",
         "note_id": "c65f2fbb-27d6-4726-bf8d-d223f6c4c6bc"
+    },
+    {
+        "title": "First Test",
+        "text": "We tested it",
+        "note_id": "2c434a75-2084-4205-b003-09855b2c973e"
+    },
+    {
+        "title": "Second Test",
+        "text": "Second test text yolo\n",
+        "note_id": "06c19116-219a-43d7-9401-8e45f05919c7"
     }
 ]
