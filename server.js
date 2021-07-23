@@ -16,24 +16,24 @@ app.use(express.static('public'));
 
 // routes
 app.get('/notes', (req, res) => {
+    console.log(`GET Path: ${req.url}`);
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
-// return the currents notes by reading `db.json`
+// return the current notes by reading `db.json`
 app.get('/api/notes', (req, res) => {
+    console.log(`GET Path: ${req.url}`);
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
             console.err(err);
         } else {
-            res.json(data)
+            res.json(JSON.parse(data))
         }
     });
 });
 
-// get current notes by reading `db.json`
-// append a new note to the collection
-// save the new collection of notes to `db.json`
 app.post('/api/notes', (req, res) => {
+    console.log(`POST Path: ${req.url}`);
     const {title, text} = req.body; // destructure note object into its properties
 
     if (req.body) {
@@ -49,20 +49,21 @@ app.post('/api/notes', (req, res) => {
                 console.err(err);
             } else {
                 const noteCollection = JSON.parse(data); // put db.json into variable
-                console.log(`Old noteCollection === ${JSON.stringify(noteCollection)}`);
                 noteCollection.push(newNote); // add new note to the array
 
-                fs.writeFile("./db/db.json", JSON.stringify(noteCollection), (err) => {
+                fs.writeFile("./db/db.json", JSON.stringify(noteCollection, null, 4), (err) => {
                     if (err) throw err;
                     console.log('Saved db.json');
                 });
 
-                res.send(`new noteCollection === ${JSON.stringify(noteCollection)}`);
+                res.json(newNote);
             }
         });
+        // end readAndAppend
 
+    } else {
+        res.error('Error adding Note');
     };
-
 
 });
 
@@ -71,10 +72,12 @@ app.post('/api/notes', (req, res) => {
 // delete the note from the collection
 // rewrite collection to `db.json`
 app.delete('/api/notes/:id', (req, res) => {
+    console.log(`DELETE Path: ${req.url}`);
     res.send();
 });
 
 app.get('*', (req, res) => {
+    console.log(`GET Wildcard: ${req.url}`);
     res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
