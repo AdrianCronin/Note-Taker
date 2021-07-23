@@ -1,16 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "First Note Title",
+        "text": "First note Text",
+        "id": "5adad9a4-f6fb-405e-b555-dc682cbe3132"
     },
     {
-        "title": "First Test Title",
-        "text": "First Test Text",
-        "id": "3cda2571-0384-4c35-b6b2-4de163c97370"
+        "title": "Second Note Text",
+        "text": "More Text in this one than the last one\n",
+        "id": "931a7db1-7d0d-4bf9-b25d-2ff8856bfa78"
     },
     {
-        "title": "Second Test Title",
-        "text": "Second Test Text\n",
-        "id": "79bedaf8-0a45-4827-a767-2bd707c62d31"
+        "title": "Third one ",
+        "text": "Just for good measure man",
+        "id": "47d6a691-c771-4f91-95e7-f59714bbbc1f"
     }
 ]
