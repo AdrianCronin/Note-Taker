@@ -12,7 +12,12 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-
+const overwriteDBFile = (noteCollection) => {
+    fs.writeFile("./db/db.json", JSON.stringify(noteCollection, null, 4), (err) => {
+        if (err) throw err;
+        console.log('Saved db.json');
+    });
+};
 
 // routes
 app.get('/notes', (req, res) => {
@@ -52,10 +57,7 @@ app.post('/api/notes', (req, res) => {
                 noteCollection.push(newNote); // add new note object to the array
 
                 // overwrite new collection into db.json
-                fs.writeFile("./db/db.json", JSON.stringify(noteCollection, null, 4), (err) => {
-                    if (err) throw err;
-                    console.log('Saved db.json');
-                });
+                overwriteDBFile(noteCollection);
 
                 res.json(newNote); // return new note to client
             }
@@ -83,18 +85,15 @@ app.delete('/api/notes/:id', (req, res) => {
                 for (let i = 0; i < noteCollection.length; i++) {
                     if (noteCollection[i].id === noteId) {
                         noteCollection.splice([i], 1);
-                        break; // stop iterating because each id is unique
+                        break; // stop iterating once a unique id is found
                     };
                 };
 
                 // overwrite new collection into db.json
-                fs.writeFile("./db/db.json", JSON.stringify(noteCollection, null, 4), (err) => {
-                    if (err) throw err;
-                    console.log('Saved db.json');
-                });
+                overwriteDBFile(noteCollection);
             };
         });
-        
+
         res.send(`Deleted`);
     } else {
         res.error('Error deleting note')
