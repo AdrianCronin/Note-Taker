@@ -19,15 +19,12 @@ const overwriteDBFile = (noteCollection) => {
     });
 };
 
-// routes
 app.get('/notes', (req, res) => {
-
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
 // return the current notes by reading `db.json`
 app.get('/api/notes', (req, res) => {
-
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
             console.err(err);
@@ -54,11 +51,9 @@ app.post('/api/notes', (req, res) => {
                 console.err(err);
             } else {
                 const noteCollection = JSON.parse(data); // put db.json into array of objects
-                noteCollection.push(newNote); // add new note object to the array
 
-                // overwrite new collection into db.json
-                overwriteDBFile(noteCollection);
-
+                noteCollection.push(newNote); // add new note object to the array 
+                overwriteDBFile(noteCollection); // overwrite new collection into db.json
                 res.json(newNote); // return new note to client
             }
         });
@@ -76,6 +71,7 @@ app.delete('/api/notes/:id', (req, res) => {
     if (req.params.id) {
         const noteId = req.params.id;
 
+        // read file then delete note with matching id
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
             if (err) {
                 console.err(err);
@@ -89,8 +85,7 @@ app.delete('/api/notes/:id', (req, res) => {
                     };
                 };
 
-                // overwrite new collection into db.json
-                overwriteDBFile(noteCollection);
+                overwriteDBFile(noteCollection); // overwrite new collection into db.json
             };
         });
 
@@ -103,7 +98,6 @@ app.delete('/api/notes/:id', (req, res) => {
 
 // wildcard path
 app.get('*', (req, res) => {
-
     res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
