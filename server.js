@@ -8,7 +8,10 @@ const PORT = process.env.port || 3001;
 // middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
 app.use(express.static('public'));
+
+
 
 // routes
 app.get('/notes', (req, res) => {
@@ -26,6 +29,8 @@ app.post('/api/notes', (req, res) => {
 app.get('*', (req, res) => {
     res.send("Catch All")
 });
+
+
 
 // Listener
 app.listen(PORT, () => {
