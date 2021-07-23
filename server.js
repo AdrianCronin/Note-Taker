@@ -19,8 +19,15 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
+// get the currents notes by reading `db.json`
 app.get('/api/notes', (req, res) => {
-    res.send(req.url)
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.err(err);
+        } else {
+            res.json(JSON.parse(data))
+        }
+    });
 });
 
 app.post('/api/notes', (req, res) => {
@@ -35,5 +42,5 @@ app.get('*', (req, res) => {
 
 // Listener
 app.listen(PORT, () => {
-    console.log(`App listening on PORT http://localhost:${PORT}`);
+    console.log(`App listening on PORT http://localhost:${PORT}`)
 });
