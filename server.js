@@ -104,7 +104,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 // wildcard path
 app.get('*', (req, res) => {
-    console.log(`GET Wildcard: ${req.url}`);
+
     res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
