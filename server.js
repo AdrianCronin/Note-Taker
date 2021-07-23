@@ -40,7 +40,7 @@ app.post('/api/notes', (req, res) => {
         const newNote = {
             title,
             text,
-            note_id: uuidv4()
+            id: uuidv4()
         };
 
         // read file then append new note
@@ -73,7 +73,8 @@ app.post('/api/notes', (req, res) => {
 // rewrite collection to `db.json`
 app.delete('/api/notes/:id', (req, res) => {
     console.log(`DELETE Path: ${req.url}`);
-    res.send();
+    console.log(`id: ${req.body.id}`);
+    res.send(`${req.body.id}`);
 });
 
 app.get('*', (req, res) => {

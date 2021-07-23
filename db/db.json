@@ -4,28 +4,13 @@
         "text": "Test text"
     },
     {
-        "title": "Second Title",
-        "text": "Second Text",
-        "note_id": "d5c453d6-8b03-446f-8baa-83e18f8e6bd0"
+        "title": "First Test Title",
+        "text": "First Test Text",
+        "id": "3cda2571-0384-4c35-b6b2-4de163c97370"
     },
     {
-        "title": "Third Title",
-        "text": "Third Text",
-        "note_id": "613d7064-e5b2-4c2d-9db4-7dd29250756c"
-    },
-    {
-        "title": "Third Title",
-        "text": "Third Text",
-        "note_id": "c65f2fbb-27d6-4726-bf8d-d223f6c4c6bc"
-    },
-    {
-        "title": "First Test",
-        "text": "We tested it",
-        "note_id": "2c434a75-2084-4205-b003-09855b2c973e"
-    },
-    {
-        "title": "Second Test",
-        "text": "Second test text yolo\n",
-        "note_id": "06c19116-219a-43d7-9401-8e45f05919c7"
+        "title": "Second Test Title",
+        "text": "Second Test Text\n",
+        "id": "79bedaf8-0a45-4827-a767-2bd707c62d31"
     }
 ]
