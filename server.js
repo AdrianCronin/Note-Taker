@@ -28,7 +28,7 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.send("Catch All")
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
 
