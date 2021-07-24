@@ -66,7 +66,6 @@ app.post('/api/notes', (req, res) => {
 
 
 app.delete('/api/notes/:id', (req, res) => {
-    console.log(`DELETE Path: ${req.url}`);
 
     if (req.params.id) {
         const noteId = req.params.id;
