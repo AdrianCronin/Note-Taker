@@ -65,7 +65,6 @@ app.post('/api/notes', (req, res) => {
 
 });
 
-
 app.delete('/api/notes/:id', (req, res) => {
 
     if (req.params.id) {
