@@ -8,5 +8,10 @@
         "title": "TODO: Heroku",
         "text": "Deploy this to herokuapp\n",
         "id": "c7753a04-d1be-4b40-8378-2dfb86f355ae"
+    },
+    {
+        "title": "New Note Title Test",
+        "text": "New Note text test",
+        "id": "cb0554c2-93b2-4123-b833-91f3d1a9a643"
     }
 ]

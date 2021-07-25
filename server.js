@@ -39,6 +39,7 @@ app.post('/api/notes', (req, res) => {
     const { title, text } = req.body; // destructure note object into its properties
 
     if (req.body) {
+        // creates a new note object with a unique ID and the user input
         const newNote = {
             title,
             text,
@@ -50,10 +51,10 @@ app.post('/api/notes', (req, res) => {
             if (err) {
                 console.err(err);
             } else {
-                const noteCollection = JSON.parse(data); // put db.json into array of objects
+                const noteCollection = JSON.parse(data); // save db.json data into an array
 
                 noteCollection.push(newNote); // add new note object to the array 
-                overwriteDBFile(noteCollection); // overwrite new collection into db.json
+                overwriteDBFile(noteCollection); // save the new data to db.json
                 res.json(newNote); // return new note to client
             }
         });
@@ -75,7 +76,7 @@ app.delete('/api/notes/:id', (req, res) => {
             if (err) {
                 console.err(err);
             } else {
-                const noteCollection = JSON.parse(data); // put db.json into array of objects
+                const noteCollection = JSON.parse(data); // save db.json data into an array
 
                 for (let i = 0; i < noteCollection.length; i++) {
                     if (noteCollection[i].id === noteId) {
@@ -84,7 +85,7 @@ app.delete('/api/notes/:id', (req, res) => {
                     };
                 };
 
-                overwriteDBFile(noteCollection); // overwrite new collection into db.json
+                overwriteDBFile(noteCollection); // save the new data to db.json
             };
         });
 
