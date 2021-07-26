@@ -4,7 +4,7 @@
   
   ## Description
   
-  This application enables the user to create, save, review, and delete notes. It saves the notes on the backend so the user has access to their notes from any internet-connected and web-capabale device.
+  This application enables the user to create, save, review, and delete notes. It saves the notes on the backend so the user has access to their notes from any internet-connected and web-capable device.
    
   ## Table of Contents
 
