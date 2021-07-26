@@ -32,6 +32,8 @@
     * Click on the "+" on the top right of the page to start a new note
 * Deleting notes
     * Press the red garbage can icon next to the title of the note you wish to delete
+
+![Note Taker](./public/assets/images/NoteTaker.png)
   
 ## Contributing
 
